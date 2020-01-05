@@ -51,4 +51,35 @@ multi-line strings like this one.
 ''';
 
   printDynamic(mutilineString2);
+  const Object i = 3;
+  const list = [1, 2, 3];
+  const map = {if (i is int) i: "int"}; // Use is and collection if.
+  const set = {if (list is List<int>) ...list}; // ...and a spread.
+  print(map);
+  print(set);
+
+  var elements = <String>{};
+  elements.add('fluorine');
+  elements.addAll(['chlorine', 'bromine', 'iodine', 'astatine']);
+  print(elements);
+  const s = #test;
+  print(s);
+  print(sumNums(5, 5, 5));
+  Function getID = useID();
+  print(getID());
+  print(getID());
+  print(getID());
+}
+
+int sumNums(int a, int b, [int c]) {
+  var sum = a + b;
+  return c != null ? sum + c : c;
+}
+
+useID() {
+  int id = 0;
+  return () {
+    id++;
+    return "@id-$id";
+  };
 }
